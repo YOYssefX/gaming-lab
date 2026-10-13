@@ -22,12 +22,18 @@ public class movement : MonoBehaviour
     public LayerMask whatIsGround; 
     private bool grounded; 
 
+    private Animator anim;
+
+
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+
         
     }
 
@@ -60,10 +66,14 @@ public class movement : MonoBehaviour
             if(GetComponent<SpriteRenderer>() != null){
                 GetComponent<SpriteRenderer>().flipX = false;
             }
+            
 
         }
 
         
+        anim.SetFloat("speed",Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+        anim.SetFloat("height", GetComponent<Rigidbody2D>().velocity.y);
+        anim.SetBool("grounded" , grounded) ; 
 
         
 
