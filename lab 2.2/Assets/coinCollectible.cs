@@ -11,7 +11,7 @@ public AudioClip coin2;
 
 void OnTriggerEnter2D(Collider2D other){
 
-    if (other.tag == "Player")
+    if (other.tag == "Player" && audio_Manager.Instance != null )
 
     PlayerStats. score++;
     audio_Manager.Instance.PlayRandomSFX(coin1,coin2);
